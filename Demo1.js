@@ -28,12 +28,14 @@ client.connect(function(err) {
     // read the data
     // db.collection('employe').find().toArray(function (err,docs) {
     // update the data
-    db.collection('employe').update({id:205},{ $set: {
-        age: 26, location: 'CANADA'
-        }},
+    // db.collection('employe').updateOne({id:205},{ $set: {
+    //     age: 26, location: 'CANADA'
+    //     }},
+    // delete the record
+    db.collection('employe').deleteOne({id:205},
         function(err, r){
         if (err) throw err;
-        console.log("updated the records");
+        console.log("Record is deleted!");
     });
 
     client.close();
