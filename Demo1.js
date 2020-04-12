@@ -25,9 +25,15 @@ client.connect(function(err) {
     //
     // ];
     // db.collection('employe').insertMany(employes, function (err, r) {
-    db.collection('employe').find().toArray(function (err,docs) {
-        if(err) throw err;
-        console.log(docs);
+    // read the data
+    // db.collection('employe').find().toArray(function (err,docs) {
+    // update the data
+    db.collection('employe').update({id:205},{ $set: {
+        age: 26, location: 'CANADA'
+        }},
+        function(err, r){
+        if (err) throw err;
+        console.log("updated the records");
     });
 
     client.close();
