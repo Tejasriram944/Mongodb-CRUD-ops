@@ -17,16 +17,17 @@ client.connect(function(err) {
     const db = client.db(dbName);
 
     // insert a multiple document
-    let employes = [
-        {id:202, name: 'teja', age:24, location: 'GnT'},
-        {id:203, name: 'sriram', age:22, location: 'LONDAN'},
-        {id:204, name: 'founder', age:25, location: 'GEORGE'},
-        {id:205, name: 'creative', age:23, location: 'TNL'},
-
-    ];
-    db.collection('employe').insertMany(employes, function (err, r) {
+    // let employes = [
+    //     {id:202, name: 'teja', age:24, location: 'GnT'},
+    //     {id:203, name: 'sriram', age:22, location: 'LONDAN'},
+    //     {id:204, name: 'founder', age:25, location: 'GEORGE'},
+    //     {id:205, name: 'creative', age:23, location: 'TNL'},
+    //
+    // ];
+    // db.collection('employe').insertMany(employes, function (err, r) {
+    db.collection('employe').find().toArray(function (err,docs) {
         if(err) throw err;
-        console.log('All records are inserted');
+        console.log(docs);
     });
 
     client.close();
